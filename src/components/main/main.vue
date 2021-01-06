@@ -3,8 +3,9 @@
     <Sider hide-trigger collapsible :width="256" :collapsed-width="64" v-model="collapsed" class="left-sider" :style="{overflow: 'hidden'}">
       <side-menu accordion ref="sideMenu" :active-name="$route.name" :collapsed="collapsed" @on-select="turnToPage" :menu-list="menuList">
         <!-- 需要放在菜单上面的内容，如Logo，写在side-menu标签内部，如下 -->
-        <div class="logo-con">
-          <img v-show="!collapsed" :src="maxLogo" key="max-logo" />
+        <div class="logo-con" style="text-align: center">
+<!--          <img v-show="!collapsed" :src="maxLogo" key="max-logo" />-->
+          <i v-show="!collapsed" class="web-font">巡检系统</i>
           <img v-show="collapsed" :src="minLogo" key="min-logo" />
         </div>
       </side-menu>
@@ -185,3 +186,24 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+@font-face {
+  font-family: 'webfont';
+  font-display: swap;
+  src: url('//at.alicdn.com/t/webfont_jz8w2apaawe.eot'); /* IE9*/
+  src: url('//at.alicdn.com/t/webfont_jz8w2apaawe.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('//at.alicdn.com/t/webfont_jz8w2apaawe.woff2') format('woff2'),
+  url('//at.alicdn.com/t/webfont_jz8w2apaawe.woff') format('woff'), /* chrome、firefox */
+  url('//at.alicdn.com/t/webfont_jz8w2apaawe.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+  url('//at.alicdn.com/t/webfont_jz8w2apaawe.svg#FZZDHJW--GB1-0') format('svg'); /* iOS 4.1- */
+}
+.web-font {
+  font-family: "webfont" !important;
+  font-size: 30px;
+  font-style: normal;
+  color: white;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+</style>
